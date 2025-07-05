@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let data = [
+            {
+                userName: "张三",
+                userMessage: "哈哈哈今天天气真好",
+                sendTime: "一天前"
+            },
+            {
+                userName: "李四",
+                userMessage: "哈哈哈今天天气真不好",
+                sendTime: "一年前"
+            },
+            {
+                userName: "李四",
+                userMessage: "哈哈哈今天天气真不好",
+                sendTime: "一年前"
+            }
+        ]
+    </script>
+</head>
+<body style="background-color: #402b0c">
+<div class="main" id="main">
+    <script>
+        // 定义大盒子长宽
+        let mainDiv = document.getElementById('main')
+        if (innerWidth > innerHeight) {
+            alert('目前对于桌面端支持度较差建议移动设备使用\n如需桌面端使用建议把浏览器窗口大小调成手机比例然后刷新此页面')
+            mainDiv.style.width = `${innerHeight * 10 / 16}px`
+        } else {
+            mainDiv.style.width = `${innerWidth}px`
+        }
+
+        // // 动态添加小盒子css
+        // const style = document.createElement('style');
+        // style.textContent = `
+        //   .basicBlock {
+        //   }
+        // `;
+        // document.head.appendChild(style);
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            for (let i = data.length - 1; i >= 0; --i) {
+
+                document.getElementById('main').innerHTML += `
+                    <div class="basicBlock">
+                        <div class="leftContent">
+                            <div class="avatar"></div>
+                        </div>
+                        <div class="rightContent">
+                            <p class="userName">${data[i].userName}</p>
+                            <p class="userMessage">${data[i].userMessage}</p>
+                            <p class="sendTime">${data[i].sendTime}</p>
+                        </div>
+                    </div>
+                `
+            }
+        })
+    </script>
+</div>
+</body>
+</html>
