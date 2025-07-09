@@ -15,6 +15,8 @@
             margin: 0;
             flex-wrap: wrap;
             box-sizing: border-box;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         /*更多*/
@@ -26,56 +28,8 @@
 
     </style>
     <script>
-        let data = [
-            {
-                "userName": "张三",
-                "userMessage": "哈哈哈今天天气暗室逢灯顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶发的事实是事实是事实是事实是事实是事实打算帆帆帆帆帆帆帆帆帆帆帆帆帆帆真好",
-                "sendTime": "一天前",
-            },
-            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            },
-            {
-                "userName": "李四",
-                "userMessage": "哈哈哈今天天气真不好",
-                "sendTime": "一年前"
-            }
-        ]
-
-
         // 点赞评论冒泡处理
-        let popStatus = false;
-
+        let popStatus = false
         function popMore(e) {
             // noinspection CssInvalidPropertyValue
             const popButton = `
@@ -89,38 +43,34 @@
             const popButtonBack = `
                 <div></div><div></div><div></div><div></div><div></div>
             `
-
             // 清除上次监听
-            document.removeEventListener("click", clc);
-            document.removeEventListener("scroll", scr);
-
+            document.removeEventListener("click", clc)
+            document.removeEventListener("scroll", scr)
             if (popStatus) {
-                popStatus = false;
-                e.innerHTML = popButtonBack;
+                popStatus = false
+                e.innerHTML = popButtonBack
             } else {
-                popStatus = true;
-                e.innerHTML += popButton;
-
+                popStatus = true
+                e.innerHTML += popButton
                 // 等待当前点击完成后再监听外部点击（否则点自己也被当成外部）
                 setTimeout(() => {
-                    document.addEventListener("click", clc);
-                }, 0);
-
-                document.addEventListener("scroll", scr);
+                    document.addEventListener("click", clc)
+                }, 0)
+                document.addEventListener("scroll", scr)
             }
 
             function clc() {
-                popStatus = false;
-                e.innerHTML = popButtonBack;
-                document.removeEventListener("click", clc);
-                document.removeEventListener("scroll", scr);
+                popStatus = false
+                e.innerHTML = popButtonBack
+                document.removeEventListener("click", clc)
+                document.removeEventListener("scroll", scr)
             }
 
             function scr() {
-                popStatus = false;
-                e.innerHTML = popButtonBack;
-                document.removeEventListener("click", clc);
-                document.removeEventListener("scroll", scr);
+                popStatus = false
+                e.innerHTML = popButtonBack
+                document.removeEventListener("click", clc)
+                document.removeEventListener("scroll", scr)
             }
         }
 
@@ -230,13 +180,17 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded",async () => {
+            const avatarData = "./media/avatar/"
+            let data
+            await fetch("./data/default.json").then(res => res.json()).then(res => data = res)
+
             data.forEach((item) => {
                 // noinspection CssInvalidPropertyValue
                 document.getElementById('main').innerHTML += `
                     <div class="basicBlock">
                         <div class="leftContent">
-                            <div class="avatar"></div>
+                            <div class="avatar" style="background-image: url('${avatarData+item.userAvatar}')"></div>
                         </div>
                         <div class="rightContent">
                             <!--用户名-->

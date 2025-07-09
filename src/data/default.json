@@ -1,0 +1,20 @@
+[
+  {
+    "userAvatar":"路径",
+    "userName": "用户名",
+    "userMessage": "信息",
+    "sendTime": "时间"
+  },
+  {
+    "userAvatar":"ua.jpg",
+    "userName": "李四",
+    "userMessage": "哈哈哈今天天气真不好",
+    "sendTime": "一年前"
+  },
+  {
+    "userAvatar":"ua.jpg",
+    "userName": "李四",
+    "userMessage": "哈哈哈今天天气真不好",
+    "sendTime": "一年前"
+  }
+]
