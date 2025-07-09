@@ -1,18 +1,18 @@
 [
   {
-    "userAvatar":"路径",
+    "userAvatar": "路径",
     "userName": "用户名",
     "userMessage": "信息",
     "sendTime": "时间"
   },
   {
-    "userAvatar":"ua.jpg",
-    "userName": "李四",
-    "userMessage": "哈哈哈今天天气真不好",
-    "sendTime": "一年前"
+    "userAvatar": "ua.jpg",
+    "userName": "大酱",
+    "userMessage": "琪露诺你好香",
+    "sendTime": "现在"
   },
   {
-    "userAvatar":"ua.jpg",
+    "userAvatar": "ua.jpg",
     "userName": "李四",
     "userMessage": "哈哈哈今天天气真不好",
     "sendTime": "一年前"

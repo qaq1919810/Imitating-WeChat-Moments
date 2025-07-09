@@ -14,7 +14,8 @@
 ---
 
 ## 使用方法
-修改文件中的data变量中的内容
+修改default.json文件中的内容
+然后运行main.html或者index.html
 ```json
 {
     "userAvatar":"路径",

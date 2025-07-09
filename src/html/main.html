@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/userData.js"></script>
+    <script src="../js/style.js"></script>
+    <script src="../js/pop.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        popMore()
+    </script>
+</head>
+<body style="background-color: #402b0c">
+<div class="main" id="main">
+    <script>
+        // 加载布局
+        style()
+    </script>
+
+    <script>
+        // let USER = prompt("输入你的用户名\n此决定会影响你在此网站中点赞和评论时的名字显示\n如果不会进行此操作可以无视此并直接点击确定或者取消")
+        document.addEventListener("DOMContentLoaded", async () => {
+            // 获取用户数据
+            await getUserData()
+
+            userData.forEach((item) => {
+                document.getElementById('main').innerHTML += `
+                    <div class="basicBlock">
+                        <div class="leftContent">
+                            <div class="avatar" style="background-image: url('${avatarData + item.userAvatar}')"></div>
+                        </div>
+                        <div class="rightContent">
+                            <!--用户名-->
+                            <p class="userName">${item.userName}</p>
+                            <!--用户发布的消息-->
+                            <p class="userMessage">${item.userMessage}</p>
+                            <div class="more">
+                                <!--发布时间-->
+                                <p class="sendTime">${item.sendTime}</p>
+                                <!--用户评论和点赞按钮-->
+                                <div class="userLikeAndCommentButton" onclick="popMore(this)">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="userLikeAndComment" style="border-radius: ${0.01 * mw}px">
+                                <div class="userLike"></div>
+                                <div class="userComment"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            })
+        })
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+* {
+    font-family: 黑体;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*整个大盒子*/
+.main {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+}
